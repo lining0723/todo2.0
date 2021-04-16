@@ -18,6 +18,10 @@ Page({
         return `${value}月`;
       } else if (type === 'day') {
         return `${value}日`;
+      }else if (type === 'hour') {
+        return `${value}时`;
+      }else if (type === 'minute') {
+        return `${value}分`;
       }
       return value
     },
@@ -190,8 +194,8 @@ Page({
   //全屏抽屉
   showModal(e) {
     let item = e.currentTarget.dataset.item
-    item.createTimeStr = wx.formatTime(item.createTime, 'Y/M/D h:m:s')
-    item.endTimeStr = wx.formatTime(item.endTime, 'M/D')
+    item.createTimeStr = wx.formatTime(item.createTime.replace(/\-/g,'/'), 'Y/M/D h:m:s')
+    item.endTimeStr = wx.formatTime(item.endTime.replace(/\-/g,'/'), 'M/D h:m')
     this.setData({
       modalName: 'viewModal',
       details: item
@@ -236,7 +240,7 @@ Page({
   //时间选择
   datetimeConfirm(e) {
     this.setData({
-      'details.endTimeStr': wx.formatTime(e.detail, 'M/D'),
+      'details.endTimeStr': wx.formatTime(e.detail, 'M/D h:m'),
       'details.endTime': e.detail,
       datetimePopup: false
     })

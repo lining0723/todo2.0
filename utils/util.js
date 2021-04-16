@@ -11,7 +11,7 @@ function formatNumber(n) {
 function formatTime(number, format) {
   var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
   var returnArr = [];
-  var date = new Date(number.replace(/\-/g,'/'));
+  var date = new Date(number);
   returnArr.push(date.getFullYear());
   returnArr.push(formatNumber(date.getMonth() + 1));
   returnArr.push(formatNumber(date.getDate()));

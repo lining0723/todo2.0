@@ -144,7 +144,7 @@
 
 <!-- 时间选择弹框 -->
 <van-popup show="{{datetimePopup}}" round position="bottom" bind:close="closePopup" close-on-click-overlay="{{false}}">
-	<van-datetime-picker type="date" value="{{details.endTIme}}" min-date="{{minDate}}" bind:confirm="datetimeConfirm"
+	<van-datetime-picker type="datetime" value="{{details.endTIme}}" min-date="{{minDate}}" bind:confirm="datetimeConfirm"
 		bind:cancel="datetimeClose" formatter="{{formatter}}" />
 </van-popup>
 

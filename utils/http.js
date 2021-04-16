@@ -19,6 +19,11 @@ module.exports = {
             }
             resolve(res.data);
           } else {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 1500
+            })
             console.log("错误", res)
             console.log("错误接口地址", httpUrl)
             reject(res);
